@@ -1,0 +1,72 @@
+@use "variables" as v;
+@use "mixins" as m; 
+
+@font-face{
+    font-family: caprasimo;
+    src: url("../fuentes/Caprasimo-Regular.ttf") format("truetype");
+
+}
+@font-face{
+    font-family: impactf;
+    src: url("../fuentes/8083-fontps.ttf") format("truetype");
+
+}
+
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background: v.$negro;
+}
+*,
+*:before,
+*:after{
+    box-sizing: inherit;
+}
+body{
+    font-family: v.$fuenteSecundaria;
+    font-size: 1.6rem;
+    &.fijar-body{
+        overflow: hidden;
+    }
+}
+.img-fondo{
+    background-image: url(../build/4.png);
+}
+p{
+    font-size: 2rem;
+    font-family:'Anton', sans-serif;
+    font-weight: 500;
+}
+.contenedor{
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+}
+h1,h2,h3{
+    font-family: caprasimo;
+    margin:0 0 5rem 0;
+}
+h1{
+    font-size: 6rem;
+    
+}
+h2{
+    font-size: 3rem;
+}
+h3{
+    font-size: 3rem;
+}
+img{
+    width: 100%;
+}
+.marker-red {
+    background-color: rgba(175, 0, 0, 0.966);
+}
+li{
+    font-family:'Anton', sans-serif;
+    font-weight: 300;
+}

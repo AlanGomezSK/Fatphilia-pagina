@@ -1,0 +1,70 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+.galeria{
+    background-image: url("../img/pic2.webp");
+    width: 100%;
+    height: 70rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: 20% 50%;
+    -moz-transition:background-image 3s ease;
+    transition: background-image 3s ease;
+
+    img{
+        max-width: 20rem;
+        margin: 3rem auto 0 auto;
+        @include m.tablet{
+            max-width: 30rem;
+            
+        }
+        @include m.desktop{
+            max-width: 40rem;
+        }
+    }
+    h1{
+        font-size: 4.5rem;
+        font-family: caprasimo;
+    }
+    h2{
+        font-size: 3.5rem;
+        font-family: 'Anton', sans-serif;
+        font-weight: 900;
+    }
+    h1,h2{
+        color: white;
+        margin: 0 auto;
+        text-align: center;
+    }
+    @include m.telefono{
+        h1{
+            font-size: 5.5rem;
+        }
+        h2{
+            font-size: 5rem;
+        }
+        
+    }
+    @include m.tablet{
+        h1{
+            font-size: 7rem;
+        }
+        h2{
+            font-size: 6rem;
+        }
+        
+    }
+    @include m.desktop{
+        h1{
+            font-size: 8rem;
+        }
+        h2{
+            font-size: 7rem;
+        }
+        img{
+            margin-left: 0 auto;
+        }
+    }
+}
+

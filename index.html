@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fatphilia es un blog dedicado a las reseñas de distintas experiencias culinarias en Guadalajara">
+    <meta name="keywords" content="Comida, Restaurantes, Lugares, Turismo, Jalisco">
+    <meta name="author" content="Luis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="build/css/app.css">
+    <link rel="stylesheet" href="build/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="icon" href="build/img/logoIco.ico">
+    <title>Fatphilia®</title>
+</head>
+<body>
+    <header class="header">
+        <div class="contenido_header">
+            <nav class="navegador_principal">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 6l16 0" />
+                    <path d="M4 12l16 0" />
+                    <path d="M4 18l16 0" />
+                </svg>
+                <div class="navegador_principal-logo">
+                    <a href="index.html"><img class="logoFatphilia" src="build/img/logoFatphilia.webp" alt="logo de fatphilia"></a>
+                </div>
+                <div class="navegador_principal-secciones ">
+                    <a href="index.html">Inicio</a>
+                    <a href="contactanos.html">Contáctanos</a>
+                </div>
+                <div class="navegador_principal-redes ">
+                    <a href="https://www.tiktok.com/@fatphilia.gdl"><svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-brand-tiktok" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z" />
+                        </svg></a>
+                    <a href="https://www.instagram.com/fatphilia.gdl/"><svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-brand-instagram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                        <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M16.5 7.5l0 .01" />
+                      </svg></a>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+    <div class="galeria">
+        <h1>Porque sabemos</h1>
+        <h2>dónde comer bien</h2>
+        <img src="build/img/logoFatphilia-removebg-preview.webp" alt="logo fatphilia sin texto">
+    </div>
+    <section class="recomendaciones">
+        <h1>Conoce los <span>mejores restaurantes</span> de Guadalajara</h1>
+        <h2>Ticket promedio por persona y ubicación</h2>
+        <div class="mapaYfiltro">
+            <div id="map" class="mapa">
+                <div class="filtros" id="filtros">
+                    <div class="tipo_Defiltros-boton">
+                        <div class="div_filtro-boton">
+                            <button href="" class="boton_filtros"><span>Filtros</span></button>
+                        </div>
+                        <div class="tipo_Defiltros-PorComida-filtro quitarFiltros" id="tipo_Defiltros-PorComida-filtro">
+                            <label for="antojitosMexicanos">Antojitos mexicanos</label>
+                            <input type="checkbox" id="antojitosMexicanos" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="cafeteria">Cafetería</label>
+                            <input type="checkbox" id="cafeteria" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="brunch">Brunch</label>
+                            <input type="checkbox" id="brunch" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="hamburgesas">Hamburgesas</label>
+                            <input type="checkbox" id="hamburgesas" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="mariscos">Mariscos</label>
+                            <input type="checkbox" id="mariscos" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="pizzeria">Pizzería</label>
+                            <input type="checkbox" id="pizzeria" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="taqueria">Taquería</label>
+                            <input type="checkbox" id="taqueria" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="cortes">Cortes</label>
+                            <input type="checkbox" id="cortes" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="sushi">Sushi</label>
+                            <input type="checkbox" id="sushi" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="hamYhotDog">Hamburguesas y hot dogs</label>
+                            <input type="checkbox" id="hamYhotDog" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="cocinaOriental">Cocina oriental</label>
+                            <input type="checkbox" id="cocinaOriental" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="bbqYAhu">BBQ y ahumador</label>
+                            <input type="checkbox" id="bbqYAhu" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="tortasAhogadas">Tortas ahogadas</label>
+                            <input type="checkbox" id="tortasAhogadas" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="menuderia">Menudería</label>
+                            <input type="checkbox" id="menuderia" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="gusegeria">Gusguería</label>
+                            <input type="checkbox" id="gusgeria" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="hotDogs">Hot dogs</label>
+                            <input type="checkbox" id="hotDogs" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="alitas">Alitas</label>
+                            <input type="checkbox" id="alitas" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="panaderia">Panadería</label>
+                            <input type="checkbox" id="panaderia" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="bar">Bar</label>
+                            <input type="checkbox" id="bar" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="nieves">Nieves</label>
+                            <input type="checkbox" id="nieves" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="lonches">Lonches</label>
+                            <input type="checkbox" id="lonches" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="munchie">Munchie</label>
+                            <input type="checkbox" id="munchie" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="comidaArgentina">Comida argentina</label>
+                            <input type="checkbox" id="comidaArgentina" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="comidaItaliana">Comida italiana</label>
+                            <input type="checkbox" id="comidaItaliana" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <label for="hoteles">Hoteles</label>
+                            <input type="checkbox" id="hoteles" class="tipo_Defiltros-PorComida-filtro-input"><br>
+                            <p>Filtrar por ticket</p>
+                            <label for="precio">De: </label>
+                            <input min="0" max="2000" placeholder="Minimo" type="range" step="2" id="precio" class="tipo_Defiltros-PorTicket-filtro-input"><br>
+                            <label for="precio">a: </label>
+                            <label for="precio1">De: </label>
+                            <input min="0" placeholder="Minimo" type="number" id="precio1" class="tipo_Defiltros-PorTicket-filtro-input"><br>
+                            <label for="precio2">a: </label>
+                            <input min="0" placeholder="Maximo" type="number" id="precio2" class="tipo_Defiltros-PorTicket-filtro-input"><br>
+                            <button id="boton_enviar" class="boton_enviar">Filtrar</button>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+        </div>
+        
+    </section>
+    <footer>
+        <div class="contenido_header">
+            <ul>
+                <li><a href="https://www.instagram.com/fatphilia.gdl/"><svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-brand-instagram" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    <path d="M16.5 7.5l0 .01" />
+                  </svg>fatphilia.gdl</a></li>
+                <li><a href="https://www.tiktok.com/@fatphilia.gdl?lang=en"><svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-brand-tiktok" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z" />
+                    </svg>fatphilia.gdl</a></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-mail" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                    <path d="M3 7l9 6l9 -6" />
+                  </svg>fatphiliagdl@gmail.com</li>
+
+            </ul>
+            <h1>Fatphilia®</h1>
+            <p>Todos los derechos reservados-2023</p>
+        </div>
+    </footer>
+    <script src="build/js/mapa.js" type="module" ></script>
+    <script src="build/js/app.js"></script>
+    <script src="build/js/datos.js"></script>
+</body>
+</html>

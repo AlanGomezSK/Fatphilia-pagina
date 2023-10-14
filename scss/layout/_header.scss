@@ -1,0 +1,90 @@
+@use"base/variables" as v;
+@use"base/mixins" as m;
+.contenido_header{
+    padding-top: 1rem;
+}
+.navegador_principal{
+    height: 8rem;
+    padding: 0 4rem;
+    justify-content: center;
+    display: block;
+    overflow: hidden;
+    transition: all 1s ease;
+    @include m.desktop{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    div{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        img{
+            max-width: 8rem;
+        }
+    }
+}
+.size{
+    height: 25rem;
+    @include m.desktop{
+        height: 8rem;
+    }
+}
+.navegador_principal-logo{
+    justify-content:left;
+    width: 100%;
+    @include m.desktop{
+        justify-content:left;
+    }
+}
+.navegador_principal-secciones{
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    @include m.desktop{
+        flex-direction: row;
+        justify-content:space-evenly;
+    }
+    a{
+        font-family: caprasimo;
+        color: white;
+        text-align: justify;
+        text-decoration: none;
+        font-size: 3rem;
+        margin: 1rem auto;
+        &:hover{
+            color:  #cc371a;
+        }
+    }
+   
+}
+
+.navegador_principal-redes{
+    margin: 0;
+    justify-content: center;
+    gap: 5rem;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    @include m.desktop{
+        position: relative;
+        justify-content: flex-end;
+    }
+    img{
+        width: 6rem;
+    }
+}
+
+.icon{
+    position: absolute;
+    right: 2rem;
+    top: 2.5rem;
+    display: block;
+    @include m.desktop{
+        display: none;
+    }
+    
+}
+.icon:hover{
+    cursor: pointer;
+}
